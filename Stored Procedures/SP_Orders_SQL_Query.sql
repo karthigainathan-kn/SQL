@@ -68,5 +68,19 @@ EXECUTE FetchOrdersbyStatus 'Pending'
 
 
 
+--** Total Revenue**--
+CREATE PROCEDURE TotalRevenue
+@Status VARCHAR(30)
+AS
+BEGIN
+
+    SELECT SUM(Amount) AS Revenue
+    FROM Orders
+    WHERE [Status] = @Status
+
+END
+
+EXECUTE TotalRevenue 'Pending'
+
 
 
